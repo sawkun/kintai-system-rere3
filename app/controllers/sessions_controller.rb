@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       
     else
+      flash.now[:danger] = 'メールアドレスとパスワードの情報が一致しませんでした。'
       render 'new'
     end
   end
